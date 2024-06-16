@@ -16,9 +16,9 @@ namespace CashFlow.Controllers
             [FromServices] IGenerateExpensesReportExcelUseCase useCase,
             [FromHeader] string month)
         {
-            if (!DateOnly.TryParseExact(month, "yyyy-MM", out DateOnly dateOnly))
+            if (!DateOnly.TryParseExact(month, "MM/yyyy", out DateOnly dateOnly))
             {
-                return BadRequest("Invalid date format. Expected format is yyyy-MM.");
+                return BadRequest("Invalid date format. Expected format is MM/yyyy.");
             }
 
             byte[] file = await useCase.Execute(dateOnly);
