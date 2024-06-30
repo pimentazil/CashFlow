@@ -29,15 +29,20 @@ namespace CashFlow.Controllers
             return NoContent();
         }
 
-        [HttpGet]
+        [HttpGet("pdf")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
 
         public async Task<IActionResult> GetPdf(
             [FromServices] IGenerateExpensesReportPdfUseCase useCase,
-            [FromQuery] DateOnly month)
+            [FromHeader] string month)
         {
-            byte[] file = await useCase.Execute(month);
+            if (!DateOnly.TryParseExact(month, "MM/yyyy", out DateOnly dateOnly))
+            {
+                return BadRequest("Invalid date format. Expected format is MM/yyyy.");
+            }
+
+            byte[] file = await useCase.Execute(dateOnly);
 
             if (file.Length > 0)
                 return File(file, MediaTypeNames.Application.Pdf, "report.pdf");

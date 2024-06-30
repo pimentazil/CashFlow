@@ -39,4 +39,10 @@
     <ProjectReference Include="..\CashFlow.Infrastructure\CashFlow.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Logo\foto.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
