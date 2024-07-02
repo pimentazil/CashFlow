@@ -11,7 +11,7 @@ A arquitetura da **API** baseiase em **REST**, utilizando métodos **HTTP** padr
 - **Geração de Relatórios**: Capacidade de exportar relatórios detalhados para **PDF** e **Excel**, oferecendo uma análise visual e eficaz das despesas.
 - **RESTful API com Documentação Swagger**: Interface documentada que facilita a integração e o teste por parte dos desenvolvedores.
 
-##Getting Started
+## Getting Started
 
 Para obter uma cópia local funcionando, siga estes passos simples.
 
