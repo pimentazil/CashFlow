@@ -16,6 +16,9 @@ A arquitetura da **API** baseiase em **REST**, utilizando métodos **HTTP** padr
 ### Construído com
 
 ![.NET](https://img.shields.io/badge/.NET-purple?logo=.net)
+![windows](https://img.shields.io/badge/WINDOWS-blue?logo=windows)
+![sqlserver](https://img.shields.io/badge/SqlServer-gray?logo=Microsoft%20SQL%20Server)
+![swagger](https://img.shields.io/badge/Swagger-green?logo=Swagger)
 
 ## Getting Started
 
