@@ -6,12 +6,14 @@ using CashFlow.Application.UseCases.Expenses.Update;
 using CashFlow.Communication.Requests;
 using CashFlow.Communication.Responses;
 using CashFlow.Infrastructure.DataAccess;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CashFlow.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ExpensesController : ControllerBase
     {
         private readonly CashFlowDbContext _ctx;
@@ -45,7 +47,6 @@ namespace CashFlow.Api.Controllers
         [Route("{id}")]
         [ProducesResponseType(typeof(ResponseExpenseJson), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
-
         public IActionResult GetById(int id)
         {
             var expenseService = new GetExpenseByIdUseCase(_ctx);
@@ -56,7 +57,6 @@ namespace CashFlow.Api.Controllers
         [Route("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
-
         public IActionResult Delete(int id)
         {
             var registerService = new DeleteExpenseUseCase(_ctx);
@@ -70,8 +70,6 @@ namespace CashFlow.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
-
-
         public IActionResult Update(int id, [FromBody] RequestExpenseJson request)
         {
             var registerService = new UpdateExpenseUseCase(_ctx);

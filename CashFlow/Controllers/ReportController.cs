@@ -32,7 +32,6 @@ namespace CashFlow.Controllers
         [HttpGet("pdf")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-
         public async Task<IActionResult> GetPdf(
             [FromServices] IGenerateExpensesReportPdfUseCase useCase,
             [FromHeader] string month)
